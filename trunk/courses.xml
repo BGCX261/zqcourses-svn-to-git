@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.6.0" method="upgrade">
+ <!-- http://www.converthub.com/ -->
+	<name>com_courses</name>
+	<!-- The following elements are optional and free of formatting conttraints -->
+	<creationDate>July 2012</creationDate>
+	<author>Torbjorn Backstrom</author>
+<!--	<authorEmail>john.doe@example.org</authorEmail>-->
+<!--	<authorUrl>http://www.example.org</authorUrl>-->
+	<copyright>Copyright Info</copyright>
+	<license>License Info</license>
+	<!--  The version string is recorded in the components table -->
+	<version>0.0.85</version>
+	<!-- The description is optional and defaults to the name -->
+	<description>COM_COURSES_XML_DESCRIPTION</description>
+ 
+	<scriptfile>script.php</scriptfile>
+
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<update> <!-- Runs on update; New in 1.6 -->
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+ <!--
+	<files folder="site">
+		<filename>index.html</filename>
+		<filename>courses.php</filename>
+		<filename>controller.php</filename>
+		<folder>views</folder>
+		<folder>models</folder>
+		<folder>language</folder>
+	</files>
+ -->
+	<media destination="com_courses" folder="media">
+		<folder>css</folder>
+		<folder>images</folder>
+	</media>
+
+	<administration>
+		<menu img="../media/com_courses/images/menu/icon-16-courses.png">COM_COURSES_MENU</menu>
+		<submenu>
+            <menu link="option=com_courses" view="courses" img="../media/com_courses/images/menu/icon-16-courses.png" alt="Courses/Courses">COM_COURSES_COURSES_SUBMENU</menu>
+            <menu link="option=com_categories&amp;extension=com_courses" view="course" img="../media/com_courses/images/menu/icon-16-courses-cat.png" alt="Courses/Course">COM_COURSES_COURSE_SUBMENU</menu>
+        </submenu >
+		
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>index.html</filename>
+			<filename>courses.php</filename>
+			<filename>controller.php</filename>
+			<folder>helpers</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>models</folder>
+			<folder>views</folder>
+			<folder>controllers</folder>
+		</files>
+
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/en-GB.com_courses.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_courses.sys.ini</language>
+		</languages>
+
+		</administration>
+ 
+</extension>
